@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:inventory/screens/home_screen.dart';
+import 'package:inventory/screens/login_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
     return const MaterialApp(
       title: "Inventory App",
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      home: LoginScreen(),
     );
   }
 }
