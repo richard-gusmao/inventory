@@ -13,9 +13,21 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 0,
-        toolbarHeight: 0,
-      ),
+          backgroundColor: Colors.white10,
+          elevation: 0,
+          title: Text(
+            "Inventory",
+            style: TextStyle(
+              color: Colors.black,
+              fontSize: 30,
+              fontWeight: FontWeight.normal,
+            ),
+          ),
+          leading: Icon(
+            Icons.shopping_bag,
+            size: 40,
+            color: Colors.black,
+          )),
       body: Container(
         padding: const EdgeInsets.all(10),
         child: Column(
@@ -36,20 +48,28 @@ class _HomeScreenState extends State<HomeScreen> {
             Container(
               height: 200,
               width: double.infinity,
-              child: PageView(
-                children: [
-                  Card(
-                    child: Center(
-                      child: Text("hello World"),
-                    ),
-                  ),
-                  Card(
-                    child: Center(
-                      child: Text("How are you? "),
-                    ),
-                  )
-                ],
+              child: Card(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text("hello"),
+                  ],
+                ),
               ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Text(
+              "All Products",
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            const SizedBox(
+              height: 20,
             ),
           ],
         ),
