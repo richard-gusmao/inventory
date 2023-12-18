@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'add_product_scren.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -48,8 +50,10 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
               Container(
                 height: 200,
+                decoration: BoxDecoration(),
                 width: double.infinity,
                 child: Card(
+                  color: const Color.fromARGB(255, 228, 238, 246),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.center,
@@ -72,45 +76,86 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(
                 height: 20,
               ),
-              Expanded(
-                child: GridView.builder(
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemCount: 3,
-                    scrollDirection: Axis.vertical,
-                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 2,
-                    ),
-                    itemBuilder: (context, index) {
-                      return Container(
-                        child: Card(
-                          child: Column(
-                            children: [
-                              Container(
-                                child: Image.asset(
-                                  "assets/box.png",
-                                  fit: BoxFit.cover,
-                                ),
+              GridView.builder(
+                  shrinkWrap: true,
+                  physics: const NeverScrollableScrollPhysics(),
+                  itemCount: 12,
+                  scrollDirection: Axis.vertical,
+                  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                    mainAxisExtent: 300,
+                  ),
+                  itemBuilder: (context, index) {
+                    return Container(
+                      child: Card(
+                        child: Column(
+                          children: [
+                            Container(
+                              decoration: BoxDecoration(
+                                color: const Color.fromARGB(255, 228, 238, 246),
                               ),
-                              Text("Name"),
-                              Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
+                              child: Image.asset(
+                                "assets/box.png",
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            Container(
+                              padding: const EdgeInsets.all(10),
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text("Price"),
-                                  Text("Quantity"),
+                                  SizedBox(
+                                    height: 10,
+                                    width: double.infinity,
+                                  ),
+                                  Text(
+                                    "EQUIPMENT",
+                                    style: TextStyle(
+                                      color: Colors.blue,
+                                      fontSize: 15,
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 10,
+                                  ),
+                                  Text(
+                                    "Name",
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold,
+                                    ),
+                                  ),
+                                  Text(
+                                    "256",
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w500,
+                                    ),
+                                  ),
                                 ],
-                              )
-                            ],
-                          ),
+                              ),
+                            ),
+                          ],
                         ),
-                      );
-                    }),
-              ),
+                      ),
+                    );
+                  }),
             ],
           ),
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(
+          Icons.add,
+          size: 40,
+        ),
+        onPressed: () {
+          Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => const AddProductScreen(),
+            ),
+          );
+        },
       ),
       bottomNavigationBar: BottomNavigationBar(
         onTap: (_) {
