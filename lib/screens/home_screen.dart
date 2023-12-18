@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:inventory/screens/product_detail_screen.dart';
 
 import 'add_product_scren.dart';
 
@@ -86,56 +87,66 @@ class _HomeScreenState extends State<HomeScreen> {
                     mainAxisExtent: 300,
                   ),
                   itemBuilder: (context, index) {
-                    return Container(
-                      child: Card(
-                        child: Column(
-                          children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                color: const Color.fromARGB(255, 228, 238, 246),
+                    return GestureDetector(
+                      onTap: () {
+                        Navigator.of(context).push(
+                          MaterialPageRoute(
+                            builder: (context) => const ProductDetailScreen(),
+                          ),
+                        );
+                      },
+                      child: Container(
+                        child: Card(
+                          child: Column(
+                            children: [
+                              Container(
+                                decoration: BoxDecoration(
+                                  color:
+                                      const Color.fromARGB(255, 228, 238, 246),
+                                ),
+                                child: Image.asset(
+                                  "assets/box.png",
+                                  fit: BoxFit.cover,
+                                ),
                               ),
-                              child: Image.asset(
-                                "assets/box.png",
-                                fit: BoxFit.cover,
+                              Container(
+                                padding: const EdgeInsets.all(10),
+                                child: Column(
+                                  mainAxisAlignment: MainAxisAlignment.start,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    SizedBox(
+                                      height: 10,
+                                      width: double.infinity,
+                                    ),
+                                    Text(
+                                      "EQUIPMENT",
+                                      style: TextStyle(
+                                        color: Colors.blue,
+                                        fontSize: 15,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                    Text(
+                                      "Name",
+                                      style: TextStyle(
+                                        color: Colors.black,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    Text(
+                                      "256",
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.w500,
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
-                            ),
-                            Container(
-                              padding: const EdgeInsets.all(10),
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  SizedBox(
-                                    height: 10,
-                                    width: double.infinity,
-                                  ),
-                                  Text(
-                                    "EQUIPMENT",
-                                    style: TextStyle(
-                                      color: Colors.blue,
-                                      fontSize: 15,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 10,
-                                  ),
-                                  Text(
-                                    "Name",
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  Text(
-                                    "256",
-                                    style: TextStyle(
-                                      fontWeight: FontWeight.w500,
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
+                            ],
+                          ),
                         ),
                       ),
                     );
