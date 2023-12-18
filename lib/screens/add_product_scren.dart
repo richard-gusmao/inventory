@@ -16,6 +16,17 @@ class _AddProductScreenState extends State<AddProductScreen> {
   final TextEditingController _warehouAddressController =
       TextEditingController();
 
+  Future<void> AddProduct() async {
+    showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: Text("Error"),
+            content: Text("Something Went Wrong. Try Again"),
+          );
+        });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -118,7 +129,9 @@ class _AddProductScreenState extends State<AddProductScreen> {
                 color: Colors.red,
               ),
               child: MaterialButton(
-                onPressed: () {},
+                onPressed: () {
+                  AddProduct();
+                },
                 child: Text(
                   "Add Product",
                   style: TextStyle(
